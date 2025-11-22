@@ -22,8 +22,7 @@ export default function Hero() {
           Amani Aissaoui
         </h1>
         <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-          3rd-year Computer Science Engineering Student · UI/UX & AI Enthusiast · Aspiring MIAGE L3 Candidate
-        </p>
+          Passionate about coding, AI, and design to build impactful and user-friendly solutions          </p>
 
         <div className="flex flex-wrap gap-4">
           <a href="/resume.pdf" className="px-6 py-3 rounded-full border border-white/70 hover:bg-white/20 text-white transition backdrop-blur-md">
@@ -35,7 +34,7 @@ export default function Hero() {
         </div>
 
         <div className="flex gap-4 mt-4 text-3xl text-white">
-          <a href="https://github.com/yourusername" target="_blank" className="hover:text-gray-200 transition"><FaGithub /></a>
+          <a href="https://github.com/aissamani" target="_blank" className="hover:text-gray-200 transition"><FaGithub /></a>
           <a href="https://linkedin.com/in/yourusername" target="_blank" className="hover:text-gray-200 transition"><FaLinkedin /></a>
         </div>
       </motion.div>
