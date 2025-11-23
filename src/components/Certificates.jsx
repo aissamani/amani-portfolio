@@ -8,7 +8,7 @@ import { ExternalLink, Award, Calendar, CheckCircle2 } from "lucide-react";
 // 3. Uncomment these lines locally:
 
  import cert1 from '../assets/cert1.png';
- //import cert2 from '../assets/cert2.jpg';
+ import python from '../assets/python.png';
  //import cert3 from '../assets/cert3.jpg';
 
 // --- PLACEHOLDERS (DELETE THESE WHEN WORKING LOCALLY) ---
@@ -26,11 +26,11 @@ const certificates = [
     bg: "bg-blue-50"
   },
   {
-    name: "Deep Learning Specialization",
-    issuer: "Coursera / DeepLearning.AI",
-    date: "2023",
-    skills: ["Neural Networks", "TensorFlow", "CNNs"],
-    link: "#",
+    name: "Intermediate Python",
+    issuer: "DataCamp",
+    date: "2025",
+    skills: ["Matplotlib", "Dictionaries & Pandas", "DataFrame"],
+    link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/f0614a06bd956f95a025c421da02f5ab7a79dd00?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa&utm_source=copylink",
     //image: cert2, 
     color: "text-yellow-600",
     bg: "bg-yellow-50"
