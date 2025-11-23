@@ -4,9 +4,9 @@ import { ArrowUpRight } from 'lucide-react';
 
 const designs = [
   { title: "UNI GUIDE", category: "Mobile App", image: "/Thumbnail.png", link: "https://www.behance.net/gallery/239023995/UNI-GUIDE" },
-  { title: "A9DILI - APP", category: "Service Platform", image: "public/Frame 6 (1).jpg", link: "https://www.behance.net/gallery/239023535/A9DILI-APP" },
-  { title: "DZ Estate", category: "Real Estate", image: "public/Dribbble shot HD - 1.png", link: "https://www.behance.net/gallery/238991043/DZ-estate-Commission-Free-Property-Marketplace" },
-  { title: "Edu+", category: "LMS System", image: "public/Education or online education or elearning or lms or distance learning or Learning management system.jpg", link: "https://www.behance.net/gallery/238981947/EduStu-dent-Learning-Career-Platform" },
+  { title: "A9DILI - APP", category: "Service Platform", image: "/Frame 6 (1).jpg", link: "https://www.behance.net/gallery/239023535/A9DILI-APP" },
+  { title: "DZ Estate", category: "Real Estate", image: "/Dribbble shot HD - 1.png", link: "https://www.behance.net/gallery/238991043/DZ-estate-Commission-Free-Property-Marketplace" },
+  { title: "Edu+", category: "LMS System", image: "/Education or online education or elearning or lms or distance learning or Learning management system.jpg", link: "https://www.behance.net/gallery/238981947/EduStu-dent-Learning-Career-Platform" },
 ];
 
 export default function Designs() {

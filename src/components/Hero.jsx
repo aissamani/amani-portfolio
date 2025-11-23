@@ -58,7 +58,7 @@ export default function Hero() {
             </motion.a>
             
             <motion.a 
-              href="public/CV Français Professionnel Simple Noir et Blanc (4).pdf"
+              href="/CV Français Professionnel Simple Noir et Blanc (4).pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-5 py-2.5 bg-white text-gray-900 border border-gray-200 rounded-full text-sm font-medium hover:bg-gray-50 transition-all flex items-center gap-2"
@@ -98,7 +98,7 @@ export default function Hero() {
             className="relative w-56 h-56 md:w-72 md:h-72 rounded-full p-2 bg-white shadow-2xl border border-gray-100"
           >
             <img 
-              src="public/placeholder-profile.jpg" 
+              src="/placeholder-profile.jpg" 
               alt="Amani Aissaoui" 
               className="w-full h-full object-cover rounded-full" 
             />
