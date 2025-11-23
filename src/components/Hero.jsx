@@ -10,7 +10,7 @@ import { Github, Linkedin, Mail, Download } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-start justify-center px-6 overflow-hidden bg-gray-50  pt-0">
+    <section className="relative min-h-screen flex items-start justify-center px-6 overflow-hidden bg-gray-50  pt-20">
       
       {/* --- BACKGROUND BLOBS --- */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
