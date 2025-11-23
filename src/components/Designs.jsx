@@ -2,11 +2,37 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
+ import Thumbnail from '../assets/Thumbnail.png';
+ import Frame from '../assets/Frame.jpg';
+ import edu from '../assets/edu.jpg';
+ import Dri from '../assets/Dri.png';
+
 const designs = [
-  { title: "UNI GUIDE", category: "Mobile App", image: "/Thumbnail.png", link: "https://www.behance.net/gallery/239023995/UNI-GUIDE" },
-  { title: "A9DILI - APP", category: "Service Platform", image: "/Frame 6 (1).jpg", link: "https://www.behance.net/gallery/239023535/A9DILI-APP" },
-  { title: "DZ Estate", category: "Real Estate", image: "/Dribbble shot HD - 1.png", link: "https://www.behance.net/gallery/238991043/DZ-estate-Commission-Free-Property-Marketplace" },
-  { title: "Edu+", category: "LMS System", image: "/Education or online education or elearning or lms or distance learning or Learning management system.jpg", link: "https://www.behance.net/gallery/238981947/EduStu-dent-Learning-Career-Platform" },
+  { 
+    title: "UNI GUIDE", 
+    category: "Mobile App", 
+    // LOCAL USE: Uncomment the line below and delete the placeholder line
+    image: Thumbnail, 
+    link: "https://www.behance.net/gallery/239023995/UNI-GUIDE" 
+  },
+  { 
+    title: "A9DILI - APP", 
+    category: "Service Platform", 
+    image: Frame,
+    link: "https://www.behance.net/gallery/239023535/A9DILI-APP" 
+  },
+  { 
+    title: "DZ Estate", 
+    category: "Real Estate", 
+    image:Dri,
+    link: "https://www.behance.net/gallery/238991043/DZ-estate-Commission-Free-Property-Marketplace" 
+  },
+  { 
+    title: "Edu+", 
+    category: "LMS System", 
+    image:edu,
+    link: "https://www.behance.net/gallery/238981947/EduStu-dent-Learning-Career-Platform" 
+  },
 ];
 
 export default function Designs() {
@@ -39,6 +65,9 @@ export default function Designs() {
                 <img 
                   src={design.image} 
                   alt={design.title} 
+                  onError={(e) => {
+                    e.target.src = "https://placehold.co/800x600/png?text=Image+Not+Found";
+                  }}
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:brightness-75" 
                 />
               </div>

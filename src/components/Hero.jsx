@@ -2,6 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Download } from 'lucide-react';
 
+// --- IMPORTANT FOR YOUR LOCAL SETUP ---
+// 1. Uncomment the line below on your computer:
+ import meImg from '../assets/placeholder-profile.jpg'; 
+
+// 2. Delete this placeholder line below when working locally:
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-gray-50 pt-20">
@@ -19,7 +25,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* The "Student" Badge - Made Smaller (text-xs) */}
+          {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-purple-100 text-purple-600 text-xs font-medium shadow-sm mb-6">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
@@ -28,7 +34,7 @@ export default function Hero() {
             CS Student & Creative Thinker
           </div>
 
-          {/* Headline - Reduced from text-6xl to text-4xl */}
+          {/* Headline */}
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
             Hi, I'm Amani <motion.span 
               animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
@@ -40,13 +46,13 @@ export default function Hero() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500"> beautiful</span> things.
           </h1>
 
-          {/* Bio - Reduced from text-lg to text-base (standard reading size) */}
+          {/* Bio */}
           <p className="text-base text-gray-600 mb-8 leading-relaxed max-w-md">
             I’m a Computer Science Engineering student exploring the intersection of <strong>AI</strong> and <strong>UI/UX Design</strong>. 
             I might not know everything yet, but I love solving problems and turning code into reality.
           </p>
 
-          {/* Buttons - Slightly more compact */}
+          {/* Buttons */}
           <div className="flex flex-wrap gap-3">
             <motion.a 
               href="#projects"
@@ -57,8 +63,11 @@ export default function Hero() {
               See My Projects
             </motion.a>
             
+            {/* 3. FIXED RESUME LINK (Rename your PDF file in the public folder to 'resume.pdf') */}
             <motion.a 
-              href="/CV Français Professionnel Simple Noir et Blanc (4).pdf"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-5 py-2.5 bg-white text-gray-900 border border-gray-200 rounded-full text-sm font-medium hover:bg-gray-50 transition-all flex items-center gap-2"
@@ -75,7 +84,7 @@ export default function Hero() {
             <a href="https://www.linkedin.com/in/amani-aissaoui/" className="hover:text-blue-600 transition-colors transform hover:scale-110">
               <Linkedin size={20} />
             </a>
-            <a href="amaniaiss24@gmail.com" className="hover:text-purple-600 transition-colors transform hover:scale-110">
+            <a href="mailto:amaniaiss24@gmail.com" className="hover:text-purple-600 transition-colors transform hover:scale-110">
               <Mail size={20} />
             </a>
           </div>
@@ -88,17 +97,18 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative flex justify-center items-center"
         >
-          {/* Floating Background Circle - Made smaller */}
+          {/* Floating Background Circle */}
           <div className="absolute w-64 h-64 bg-gradient-to-tr from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
           
-          {/* YOUR PHOTO CONTAINER - Made smaller */}
+          {/* YOUR PHOTO CONTAINER */}
           <motion.div 
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="relative w-56 h-56 md:w-72 md:h-72 rounded-full p-2 bg-white shadow-2xl border border-gray-100"
           >
+            {/* 4. USE THE VARIABLE HERE */}
             <img 
-              src="/placeholder-profile.jpg" 
+              src={meImg} 
               alt="Amani Aissaoui" 
               className="w-full h-full object-cover rounded-full" 
             />

@@ -2,6 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Award, Calendar, CheckCircle2 } from "lucide-react";
 
+// --- IMAGES IMPORT SECTION ---
+// 1. Move your images to "src/assets/"
+// 2. Rename "A4 - 1 (3).png" to something simple like "cert1.png"
+// 3. Uncomment these lines locally:
+
+ import cert1 from '../assets/cert1.png';
+ //import cert2 from '../assets/cert2.jpg';
+ //import cert3 from '../assets/cert3.jpg';
+
+// --- PLACEHOLDERS (DELETE THESE WHEN WORKING LOCALLY) ---
+
 // Enhanced Data Structure
 const certificates = [
   {
@@ -10,7 +21,7 @@ const certificates = [
     date: "2025",
     skills: ["Data Strategy", "AI Fundamentals", "EDA"],
     link: "https://learn.365datascience.com/c/3a956f5788/",
-    image: "/A4 - 1 (3).png", // Ensure this path matches your folder
+    image: cert1, // Use the variable, not the string path
     color: "text-blue-600",
     bg: "bg-blue-50"
   },
@@ -20,7 +31,7 @@ const certificates = [
     date: "2023",
     skills: ["Neural Networks", "TensorFlow", "CNNs"],
     link: "#",
-    image: "/cert2.jpg", 
+    //image: cert2, 
     color: "text-yellow-600",
     bg: "bg-yellow-50"
   },
@@ -30,7 +41,7 @@ const certificates = [
     date: "2023",
     skills: ["Supervised Learning", "Regression", "Python"],
     link: "#",
-    image: "/cert3.jpg", 
+    //image: cert3, 
     color: "text-emerald-600",
     bg: "bg-emerald-50"
   },
