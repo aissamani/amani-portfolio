@@ -8,7 +8,7 @@ import { ExternalLink, Award, Calendar, CheckCircle2 } from "lucide-react";
 // 3. Uncomment these lines locally:
 
  import cert1 from '../assets/cert1.png';
- import python from '../assets/python.png';
+ import cert2 from '../assets/cert2.png';
  //import cert3 from '../assets/cert3.jpg';
 
 // --- PLACEHOLDERS (DELETE THESE WHEN WORKING LOCALLY) ---
