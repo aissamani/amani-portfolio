@@ -133,7 +133,7 @@ export default function Certificates() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Certifications & <span className="text-purple-600">Awards</span>
+            Certifications & <span className="text-purple-600">Accomplishments</span>
           </motion.h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Continuous learning is at the core of my journey. Here are the milestones I've achieved in Data Science and AI.
