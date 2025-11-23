@@ -1,56 +1,123 @@
 import React from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, Download } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative grid md:grid-cols-2 gap-12 items-center py-20 px-8 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-300 rounded-3xl overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-gray-50 pt-20">
       
-      {/* Blurred floating shapes for soft background effect */}
-      <div className="absolute top-0 left-0 w-48 h-48 bg-purple-700/30 rounded-full blur-3xl animate-[float_10s_ease-in-out_infinite]"></div>
-      <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-300/30 rounded-full blur-3xl animate-[float_12s_ease-in-out_infinite]"></div>
+      {/* --- BACKGROUND BLOBS --- */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+      <div className="absolute top-0 right-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+      <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
 
-      {/* Text & buttons */}
-      <motion.div 
-        className="space-y-6 z-10"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
-          Amani Aissaoui
-        </h1>
-        <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-          Passionate about coding, AI, and design to build impactful and user-friendly solutions          </p>
+      <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+        
+        {/* --- LEFT SIDE --- */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* The "Student" Badge - Made Smaller (text-xs) */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-purple-100 text-purple-600 text-xs font-medium shadow-sm mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+            </span>
+            CS Student & Creative Thinker
+          </div>
 
-        <div className="flex flex-wrap gap-4">
-          <a href="/resume.pdf" className="px-6 py-3 rounded-full border border-white/70 hover:bg-white/20 text-white transition backdrop-blur-md">
-            View CV
-          </a>
-          <a href="#contact" className="px-6 py-3 rounded-full bg-white/20 hover:bg-white/40 text-white transition backdrop-blur-md">
-            Contact Me
-          </a>
-        </div>
+          {/* Headline - Reduced from text-6xl to text-4xl */}
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+            Hi, I'm Amani <motion.span 
+              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1 }}
+              className="inline-block origin-bottom-right"
+            >👋</motion.span>
+            <br />
+            I build <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">smart</span> & 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-orange-500"> beautiful</span> things.
+          </h1>
 
-        <div className="flex gap-4 mt-4 text-3xl text-white">
-          <a href="https://github.com/aissamani" target="_blank" className="hover:text-gray-200 transition"><FaGithub /></a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" className="hover:text-gray-200 transition"><FaLinkedin /></a>
-        </div>
-      </motion.div>
+          {/* Bio - Reduced from text-lg to text-base (standard reading size) */}
+          <p className="text-base text-gray-600 mb-8 leading-relaxed max-w-md">
+            I’m a Computer Science Engineering student exploring the intersection of <strong>AI</strong> and <strong>UI/UX Design</strong>. 
+            I might not know everything yet, but I love solving problems and turning code into reality.
+          </p>
 
-      {/* Profile image */}
-      <motion.div
-        className="flex justify-center md:justify-end z-10"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <div className="w-56 h-56 md:w-64 md:h-64 rounded-3xl overflow-hidden border-4 border-white/30 shadow-lg">
-          <img src="/placeholder-profile.jpg" alt="Amani" className="w-full h-full object-cover" />
-        </div>
-      </motion.div>
+          {/* Buttons - Slightly more compact */}
+          <div className="flex flex-wrap gap-3">
+            <motion.a 
+              href="#projects"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2.5 bg-gray-900 text-white rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+            >
+              See My Projects
+            </motion.a>
+            
+            <motion.a 
+              href="public/CV Français Professionnel Simple Noir et Blanc (4).pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2.5 bg-white text-gray-900 border border-gray-200 rounded-full text-sm font-medium hover:bg-gray-50 transition-all flex items-center gap-2"
+            >
+              <Download size={16} /> Resume
+            </motion.a>
+          </div>
+
+          {/* Social Icons */}
+          <div className="mt-8 flex items-center gap-5 text-gray-400">
+            <a href="https://github.com/aissamani" className="hover:text-gray-900 transition-colors transform hover:scale-110">
+              <Github size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/amani-aissaoui/" className="hover:text-blue-600 transition-colors transform hover:scale-110">
+              <Linkedin size={20} />
+            </a>
+            <a href="amaniaiss24@gmail.com" className="hover:text-purple-600 transition-colors transform hover:scale-110">
+              <Mail size={20} />
+            </a>
+          </div>
+        </motion.div>
+
+        {/* --- RIGHT SIDE: YOUR PHOTO --- */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative flex justify-center items-center"
+        >
+          {/* Floating Background Circle - Made smaller */}
+          <div className="absolute w-64 h-64 bg-gradient-to-tr from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+          
+          {/* YOUR PHOTO CONTAINER - Made smaller */}
+          <motion.div 
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-56 h-56 md:w-72 md:h-72 rounded-full p-2 bg-white shadow-2xl border border-gray-100"
+          >
+            <img 
+              src="public/placeholder-profile.jpg" 
+              alt="Amani Aissaoui" 
+              className="w-full h-full object-cover rounded-full" 
+            />
+            
+            {/* Floating Badge 1 */}
+            <div className="absolute -right-2 top-8 bg-white p-2 rounded-xl shadow-lg border border-gray-100 flex items-center gap-2 animate-bounce-slow">
+              <span className="text-lg">🎨</span>
+              <span className="text-[10px] font-bold text-gray-700">UI Designer</span>
+            </div>
+
+            {/* Floating Badge 2 */}
+            <div className="absolute -left-2 bottom-8 bg-white p-2 rounded-xl shadow-lg border border-gray-100 flex items-center gap-2 animate-bounce-slow animation-delay-2000">
+              <span className="text-lg">💻</span>
+              <span className="text-[10px] font-bold text-gray-700">Coder</span>
+            </div>
+          </motion.div>
+        </motion.div>
+
+      </div>
     </section>
   );
 }

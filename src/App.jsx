@@ -14,10 +14,10 @@ export default function App() {
       <Navbar />
       <main className="max-w-5xl mx-auto px-6 py-12">
         <Hero />
-        <About />
-        <Certificates />
+        
         <Projects /> 
         <Designs />
+        <Certificates />
         <Contact />
       </main>
       <Footer />
