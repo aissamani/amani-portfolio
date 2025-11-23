@@ -31,7 +31,7 @@ const certificates = [
     date: "2025",
     skills: ["Matplotlib", "Dictionaries & Pandas", "DataFrame"],
     link: "https://www.datacamp.com/completed/statement-of-accomplishment/course/f0614a06bd956f95a025c421da02f5ab7a79dd00?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa&utm_source=copylink",
-    //image: cert2, 
+    image: cert2, 
     color: "text-yellow-600",
     bg: "bg-yellow-50"
   },
