@@ -10,7 +10,7 @@ const certificates = [
     date: "2025",
     skills: ["Data Strategy", "AI Fundamentals", "EDA"],
     link: "https://learn.365datascience.com/c/3a956f5788/",
-    image: "/public/A4 - 1 (3).png", // Ensure this path matches your folder
+    image: "/A4 - 1 (3).png", // Ensure this path matches your folder
     color: "text-blue-600",
     bg: "bg-blue-50"
   },

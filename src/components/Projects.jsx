@@ -7,7 +7,7 @@ const projects = [
     title: "Supply Chain Logistics Analysis",
     description: "Developed a script to analyze shipping bottlenecks, processing 600+ records to visualize the correlation between delivery delays and customer satisfaction.",
     tags: ["Python", "Pandas", "Numpy", "Matplotlib"],
-    img: "/public/logistics.png", // Ensure this path is correct
+    img: "/logistics.png", // Ensure this path is correct
     github: "https://github.com/aissamani/logistics-analysis",
     demo: null, // Set to a URL if you have a live demo
     color: "from-blue-400 to-cyan-300" // Custom glow color
@@ -16,7 +16,7 @@ const projects = [
     title: "Titanic Data Analysis Pipeline",
     description: "Engineered a data processing pipeline to analyze passenger survival, utilizing feature extraction (Regex) and data cleaning to identify key socio-economic trends.",
     tags: ["Python", "Pandas", "Seaborn", "Matplotlib"],
-    img: "/public/03_correlation_matrix.png",
+    img: "/03_correlation_matrix.png",
     github: "https://github.com/aissamani/titanic-analysis-pipeline",
     demo: null,
     color: "from-emerald-400 to-teal-300"
@@ -25,7 +25,7 @@ const projects = [
     title: "AI Decision Algorithms Visualizer",
     description: "Built an interactive simulation to visualize how AI agents find optimal paths, implementing core graph algorithms like A* (A-Star) and BFS (Breadth-First Search) in real-time.",
     tags: ["React.js", "PyGame", "Algorithms", "Python"],
-    img: "/public/minmax.png",
+    img: "/minmax.png",
     github: "https://github.com/aissamani/my-website",
     demo: "https://my-website-three-cyan.vercel.app/",
     color: "from-purple-400 to-pink-300"
