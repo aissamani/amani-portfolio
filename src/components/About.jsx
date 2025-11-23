@@ -1,133 +1,161 @@
-import React, { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { Palette, Brain, Code2, Sparkles } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Copy, Check, Mail, ArrowUpRight, Github, Linkedin, Dribbble } from "lucide-react";
 
-// 1. Data with Icons
-const skills = [
+const socials = [
   {
-    title: "UI/UX Design",
-    desc: "Crafting intuitive user experiences with Figma & Adobe XD. Wireframing and prototyping for real-world applications.",
-    icon: <Palette className="w-6 h-6 text-purple-500" />,
-    color: "group-hover:bg-purple-500/10",
-    border: "group-hover:border-purple-500/50",
+    name: "LinkedIn",
+    icon: <Linkedin className="w-6 h-6" />,
+    link: "https://linkedin.com/in/yourusername",
+    color: "hover:bg-[#0077b5] hover:text-white",
+    text: "Connect professionally"
   },
   {
-    title: "AI & ML",
-    desc: "Developing smart solutions using Python, scikit-learn, and TensorFlow to solve complex problems.",
-    icon: <Brain className="w-6 h-6 text-emerald-500" />,
-    color: "group-hover:bg-emerald-500/10",
-    border: "group-hover:border-emerald-500/50",
+    name: "GitHub",
+    icon: <Github className="w-6 h-6" />,
+    link: "https://github.com/yourusername",
+    color: "hover:bg-[#333] hover:text-white",
+    text: "Check my repositories"
   },
   {
-    title: "Web Development",
-    desc: "Building responsive, modern web apps with React, Tailwind CSS, and Vite.",
-    icon: <Code2 className="w-6 h-6 text-blue-500" />,
-    color: "group-hover:bg-blue-500/10",
-    border: "group-hover:border-blue-500/50",
-  },
+    name: "Behance",
+    icon: <Dribbble className="w-6 h-6" />, // Lucide doesn't have Behance, using Dribbble or generic
+    link: "https://behance.net/yourusername",
+    color: "hover:bg-[#1769ff] hover:text-white",
+    text: "View design portfolio"
+  }
 ];
 
-// 2. Interactive "Spotlight" Card Component
-const SpotlightCard = ({ skill, index }) => {
-  const divRef = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState(0);
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
+  const email = "your.email@example.com";
 
-  const handleMouseMove = (e) => {
-    if (!divRef.current) return;
-    const div = divRef.current;
-    const rect = div.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleMouseEnter = () => setOpacity(1);
-  const handleMouseLeave = () => setOpacity(0);
-
   return (
-    <motion.div
-      ref={divRef}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={`relative group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-2xl overflow-hidden ${skill.border}`}
-    >
-      {/* The Spotlight Gradient */}
-      <div
-        className="pointer-events-none absolute -inset-px transition duration-300 opacity-0 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(0,0,0,0.04), transparent 40%)`,
-        }}
-      />
+    <section id="contact" className="relative py-32 px-6 overflow-hidden bg-white">
       
-      {/* Content */}
-      <div className="relative z-10">
-        <div className={`mb-4 inline-flex items-center justify-center rounded-xl p-3 transition-colors duration-300 bg-gray-50 ${skill.color}`}>
-          {skill.icon}
-        </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
-          {skill.title}
-        </h3>
-        <p className="text-gray-600 leading-relaxed text-sm">
-          {skill.desc}
-        </p>
+      {/* Background Gradient Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
+        <div className="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" />
       </div>
-    </motion.div>
-  );
-};
 
-export default function About() {
-  return (
-    <section id="about" className="relative py-32 overflow-hidden">
-      {/* Background Blobs for "Life" */}
-      <div className="absolute top-20 left-[-10%] w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-      <div className="absolute top-20 right-[-10%] w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-      <div className="absolute -bottom-32 left-1/2 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10 text-center">
         
-        {/* Header Section */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium text-gray-600 mb-6"
-          >
-            <Sparkles className="w-4 h-4 text-yellow-500" />
-            <span>Passion & Purpose</span>
-          </motion.div>
+        {/* 1. The Hook */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider mb-6">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            Open to Opportunities
+          </div>
           
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-8 text-gray-900 tracking-tight"
-          >
-            Bridging Logic & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Creativity</span>
-          </motion.h2>
+          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-6">
+            Let's work <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
+              together.
+            </span>
+          </h2>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-gray-600 leading-relaxed"
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-12">
+            Have a project in mind? I am currently available for freelance projects and internship opportunities.
+          </p>
+        </motion.div>
+
+        {/* 2. The Interactive Email Component */}
+        <motion.div 
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <button
+            onClick={handleCopy}
+            className="group relative inline-flex items-center gap-4 bg-gray-900 text-white px-8 py-4 md:px-10 md:py-6 rounded-full shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300 active:scale-95"
           >
-            I am a <span className="font-semibold text-gray-900">Computer Science Student</span> and <span className="font-semibold text-gray-900">UI/UX Designer</span>. 
-            I combine technical knowledge with artistic intuition to build engaging, intelligent, 
-            and user-friendly digital experiences. Driven by curiosity, I strive to make technology 
-            <span className="italic text-gray-900"> simple yet beautiful.</span>
-          </motion.p>
+            <Mail className="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" />
+            <span className="text-lg md:text-xl font-medium">{email}</span>
+            
+            {/* The Icon Switch (Copy vs Check) */}
+            <div className="relative w-6 h-6 ml-2">
+              <AnimatePresence mode='wait'>
+                {copied ? (
+                  <motion.div
+                    key="check"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    className="absolute inset-0 text-green-400"
+                  >
+                    <Check className="w-6 h-6" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="copy"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    className="absolute inset-0 text-gray-400 group-hover:text-white"
+                  >
+                    <Copy className="w-6 h-6" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Tooltip for feedback */}
+            <AnimatePresence>
+              {copied && (
+                <motion.span
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 20 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-lg border border-green-200"
+                >
+                  Copied to clipboard!
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+        </motion.div>
+
+        {/* 3. Social Cards Grid */}
+        <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          {socials.map((social, i) => (
+            <motion.a
+              key={i}
+              href={social.link}
+              target="_blank"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`group flex flex-col items-center justify-center p-6 rounded-2xl border border-gray-100 bg-gray-50 transition-all duration-300 ${social.color}`}
+            >
+              <div className="mb-3 p-3 rounded-full bg-white shadow-sm group-hover:bg-white/20 group-hover:text-white transition-colors">
+                {social.icon}
+              </div>
+              <h3 className="font-bold text-gray-900 group-hover:text-white">{social.name}</h3>
+              <p className="text-xs text-gray-500 mt-1 group-hover:text-white/80">{social.text}</p>
+            </motion.a>
+          ))}
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {skills.map((skill, i) => (
-            <SpotlightCard key={i} skill={skill} index={i} />
-          ))}
+        {/* Footer Copyright */}
+        <div className="mt-24 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+          <p>&copy; {new Date().getFullYear()} Amani Aissaoui. All rights reserved.</p>
+          <div className="flex gap-4 mt-4 md:mt-0">
+            <span className="hover:text-purple-600 cursor-pointer transition">Privacy Policy</span>
+            <span className="hover:text-purple-600 cursor-pointer transition">Terms of Service</span>
+          </div>
         </div>
       </div>
     </section>
