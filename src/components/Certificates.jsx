@@ -35,16 +35,7 @@ const certificates = [
     color: "text-yellow-600",
     bg: "bg-yellow-50"
   },
-  {
-    name: "Machine Learning Certificate",
-    issuer: "Stanford Online",
-    date: "2023",
-    skills: ["Supervised Learning", "Regression", "Python"],
-    link: "#",
-    //image: cert3, 
-    color: "text-emerald-600",
-    bg: "bg-emerald-50"
-  },
+
 ];
 
 const CertificateCard = ({ cert, index }) => {
